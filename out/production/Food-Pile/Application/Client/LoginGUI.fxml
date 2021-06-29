@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Client.LoginGUI">
+   <children>
+      <Label fx:id="headLabel" layoutX="36.0" prefHeight="35.0" prefWidth="229.0" text="Food Pile Application" wrapText="true">
+         <font>
+            <Font name="Forte" size="24.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#25f50a" />
+                  <Stop color="RED" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill></Label>
+      <Label fx:id="instructionLabel" layoutX="44.0" layoutY="49.0" prefHeight="17.0" prefWidth="212.0" text="Please Enter your Name and Password to Login" underline="true">
+         <font>
+            <Font name="Agency FB" size="14.0" />
+         </font></Label>
+      <Label fx:id="nameLabel" layoutX="59.0" layoutY="76.0" text="Name" />
+      <Label fx:id="passwordLabel" layoutX="199.0" layoutY="76.0" text="Password" />
+      <TextField fx:id="nameTextField" layoutX="31.0" layoutY="102.0" prefHeight="25.0" prefWidth="88.0">
+         <effect>
+            <ColorAdjust />
+         </effect></TextField>
+      <PasswordField fx:id="passwordField" layoutX="180.0" layoutY="102.0" prefHeight="25.0" prefWidth="88.0" />
+      <Button fx:id="loginButton" layoutX="124.0" layoutY="150.0" mnemonicParsing="false" onAction="#loginListener" text="Login" textFill="#d01010" />
+   </children>
+   <effect>
+      <Blend />
+   </effect>
+</AnchorPane>
