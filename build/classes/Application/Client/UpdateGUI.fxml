@@ -4,17 +4,49 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="251.0" prefWidth="388.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Client.UpdateGUI">
+<AnchorPane prefHeight="650.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Client.UpdateGUI">
    <children>
-      <Label layoutX="134.0" layoutY="14.0" prefHeight="25.0" prefWidth="149.0" text="Enter the Details to Update" />
-      <Label layoutX="74.0" layoutY="59.0" />
-      <Label layoutX="65.0" layoutY="68.0" text="BatchID" />
-      <Label layoutX="44.0" layoutY="109.0" text="Is ProductID valid?(Y/N)" />
-      <Button fx:id="updateButton" layoutX="159.0" layoutY="194.0" mnemonicParsing="false" onAction="#updateListener" prefHeight="35.0" prefWidth="70.0" text="Update" />
-      <TextField fx:id="batchIDTextField" layoutX="209.0" layoutY="64.0" />
-      <TextField fx:id="productValidTextField" layoutX="209.0" layoutY="105.0" />
-      <TextField fx:id="productIDTextField" layoutX="209.0" layoutY="144.0" />
-      <Label layoutX="65.0" layoutY="148.0" text="ProductID" />
+      <Button fx:id="updateItemButton" layoutX="166.0" layoutY="585.0" mnemonicParsing="false" onAction="#updateItemListener" prefHeight="38.0" prefWidth="167.0" text="Update Product in Database" />
+      <Label contentDisplay="CENTER" layoutX="112.0" layoutY="14.0" prefHeight="38.0" prefWidth="289.0" text="Enter the Product Details to Update">
+         <font>
+            <Font name="Book Antiqua" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="91.0" layoutY="264.0" text="Product Name" />
+      <Label layoutX="96.0" layoutY="198.0" text="Product ID" />
+      <Label layoutX="75.0" layoutY="303.0" text="Brand of the Product" />
+      <Label layoutX="78.0" layoutY="467.0" text="Remaining Quantity" />
+      <TextField fx:id="nameTextField" layoutX="257.0" layoutY="260.0" prefHeight="25.0" prefWidth="222.0" />
+      <TextField fx:id="brandTextField" layoutX="257.0" layoutY="299.0" prefHeight="25.0" prefWidth="222.0" />
+      <TextField fx:id="isproductidValidTextField" layoutX="257.0" layoutY="340.0" prefHeight="25.0" prefWidth="222.0" />
+      <TextField fx:id="productidTextField" layoutX="257.0" layoutY="382.0" prefHeight="25.0" prefWidth="222.0" />
+      <TextField fx:id="criticalquantityTextField" layoutX="257.0" layoutY="506.0" prefHeight="25.0" prefWidth="222.0" />
+      <Label layoutX="88.0" layoutY="510.0" text="Critical Quantity" />
+      <Label layoutX="106.0" layoutY="426.0" prefHeight="18.0" prefWidth="49.0" text="BatchID" />
+      <Label layoutX="63.0" layoutY="164.0" prefHeight="18.0" prefWidth="135.0" text="Is ProductID valid?(Y/N)" />
+      <TextField fx:id="batchidTextField" layoutX="257.0" layoutY="423.0" prefHeight="25.0" prefWidth="222.0" />
+      <TextField fx:id="remainquantityTextField" layoutX="257.0" layoutY="463.0" prefHeight="25.0" prefWidth="222.0" />
+      <Label layoutX="90.0" layoutY="550.0" text="Price per piece" />
+      <TextField fx:id="priceTextField" layoutX="257.0" layoutY="546.0" prefHeight="25.0" prefWidth="222.0" />
+      <Label layoutX="73.0" layoutY="94.0" text="Brand of the Product" />
+      <Label layoutX="100.0" layoutY="131.0" prefHeight="18.0" prefWidth="49.0" text="BatchID" />
+      <Label layoutX="85.0" layoutY="63.0" prefHeight="26.0" prefWidth="86.0" text="Old Details">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="86.0" layoutY="214.0" prefHeight="38.0" prefWidth="86.0" text="New Details">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="oldBatchidTextField" layoutX="257.0" layoutY="128.0" prefHeight="25.0" prefWidth="222.0" />
+      <TextField fx:id="oldBrandTextField" layoutX="257.0" layoutY="90.0" prefHeight="25.0" prefWidth="222.0" />
+      <Label layoutX="63.0" layoutY="343.0" prefHeight="18.0" prefWidth="135.0" text="Is ProductID valid?(Y/N)" />
+      <TextField fx:id="oldIsProductidValidTextField" layoutX="257.0" layoutY="160.0" prefHeight="25.0" prefWidth="222.0" />
+      <TextField fx:id="oldProductidTextField" layoutX="257.0" layoutY="194.0" prefHeight="25.0" prefWidth="222.0" />
+      <Label layoutX="96.0" layoutY="386.0" text="Product ID" />
    </children>
 </AnchorPane>

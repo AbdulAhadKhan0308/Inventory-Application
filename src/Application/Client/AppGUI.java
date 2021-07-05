@@ -127,8 +127,11 @@ public class AppGUI {
        
         
         stage2.setTitle("Specify Item to Update");
-        stage2.setScene(new Scene(root,388,251));
+        stage2.setScene(new Scene(root,500,650));
         stage2.show();
+        UpdateGUI updategui_ref = fxmlLoader.getController();
+        updategui_ref.currenttable=currenttable;
+        updategui_ref.dbconn=dbconn;
         }
         catch(SQLException e){
         System.out.println("UPDATELISTENER sql");
