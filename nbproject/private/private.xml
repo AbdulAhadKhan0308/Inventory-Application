@@ -3,15 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ABDUL%20AHAD%20KHAN/Documents/NetBeansProjects/Avishkar/FoodPhile/src/Application/Client/InsertionGUI.fxml</file>
-            <file>file:/C:/Users/ABDUL%20AHAD%20KHAN/Documents/NetBeansProjects/Avishkar/FoodPhile/src/Application/Client/LoginGUI.java</file>
-            <file>file:/C:/Users/ABDUL%20AHAD%20KHAN/Documents/NetBeansProjects/Avishkar/FoodPhile/src/Application/Client/Initiator.java</file>
-            <file>file:/C:/Users/ABDUL%20AHAD%20KHAN/Documents/NetBeansProjects/Avishkar/FoodPhile/src/Application/Client/UpdateGUI.fxml</file>
+            <file>file:/C:/Users/ABDUL%20AHAD%20KHAN/Documents/NetBeansProjects/Avishkar/FoodPhile/src/Application/Client/DeleteGUI.fxml</file>
             <file>file:/C:/Users/ABDUL%20AHAD%20KHAN/Documents/NetBeansProjects/Avishkar/FoodPhile/src/Application/Client/UpdateGUI.java</file>
             <file>file:/C:/Users/ABDUL%20AHAD%20KHAN/Documents/NetBeansProjects/Avishkar/FoodPhile/src/Application/Client/InsertionGUI.java</file>
-            <file>file:/C:/Users/ABDUL%20AHAD%20KHAN/Documents/NetBeansProjects/Avishkar/FoodPhile/src/Application/Server/Server.java</file>
             <file>file:/C:/Users/ABDUL%20AHAD%20KHAN/Documents/NetBeansProjects/Avishkar/FoodPhile/src/Application/Client/AppGUI.java</file>
-            <file>file:/C:/Users/ABDUL%20AHAD%20KHAN/Documents/NetBeansProjects/Avishkar/FoodPhile/src/Application/Client/StartApplication.java</file>
+            <file>file:/C:/Users/ABDUL%20AHAD%20KHAN/Documents/NetBeansProjects/Avishkar/FoodPhile/src/Application/Client/CheckReminderGUI.java</file>
+            <file>file:/C:/Users/ABDUL%20AHAD%20KHAN/Documents/NetBeansProjects/Avishkar/FoodPhile/src/Application/Client/SearchTableGUI.java</file>
+            <file>file:/C:/Users/ABDUL%20AHAD%20KHAN/Documents/NetBeansProjects/Avishkar/FoodPhile/src/Application/Client/DeleteGUI.java</file>
         </group>
     </open-files>
 </project-private>

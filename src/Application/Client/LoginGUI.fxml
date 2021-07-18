@@ -14,9 +14,9 @@
 
 <AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Client.LoginGUI">
    <children>
-      <Label fx:id="headLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" prefHeight="35.0" prefWidth="229.0" text="Food Pile Application" wrapText="true">
+      <Label fx:id="headLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" prefHeight="35.0" prefWidth="229.0" text="Inventory Application" wrapText="true">
          <font>
-            <Font name="Forte" size="24.0" />
+            <Font name="Bell MT" size="24.0" />
          </font>
          <effect>
             <InnerShadow />

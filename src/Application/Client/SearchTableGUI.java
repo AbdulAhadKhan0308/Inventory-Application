@@ -2,7 +2,6 @@
 package Application.Client;
 
 import com.mysql.jdbc.Connection;
-import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -37,14 +36,14 @@ public class SearchTableGUI {
     ps.setString(1,tablenameTextField.getText());
         
     ResultSet rs = ps.executeQuery();
-    System.out.println("h");
+    
     if(rs.next()) {
         appgui_ref.currenttable=srno+Integer.toString(rs.getInt("srno"))+rs.getString("tablename");
         System.out.println("CurrentTable "+appgui_ref.currenttable);
         appgui_ref.loadedTableName.setText(appgui_ref.currenttable);
-        
+        //appgui_ref.tableTextArea.setEditable(false);
     //display
-    //setreminder
+    appgui_ref.displayTabular();
     }
     else {
     System.out.println("No such Table");
@@ -59,5 +58,7 @@ public class SearchTableGUI {
     stage.close();
     }
     
-    }
+}
+
+
 }

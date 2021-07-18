@@ -39,6 +39,7 @@ public class InsertionGUI {
     public Button addItemButton;
     public String currenttable;
     public Connection dbconn;
+    public AppGUI appgui_ref;
     
     //public Stage stage;
     @FXML
@@ -46,7 +47,7 @@ public class InsertionGUI {
         
          String stringquerylastsrno="SELECT srno FROM databaseusers." +currenttable+" ORDER BY srno DESC LIMIT 1;";
          String stringqueryadd="INSERT INTO databaseusers."+currenttable+"(srno, productname, brand, productidvalid, productid, batchid, remainingquantity, criticalquantity, priceperpiece) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
-         String stringqueryexists = "SELECT batchid FROM databaseusers."+currenttable+" WHERE batchid=?;";
+         String stringqueryexists = "SELECT remainingquantity FROM databaseusers."+currenttable+" WHERE brand=? AND batchid=?;";
          
         System.out.println("Trying to add item to database table "+currenttable);
         System.out.println(stringquerylastsrno);
@@ -88,16 +89,19 @@ public class InsertionGUI {
         
             PreparedStatement ps = (PreparedStatement)dbconn.prepareStatement(stringqueryexists);
             
-            ps.setString(1,batchidTextField.getText());
+            ps.setString(1,brandTextField.getText());
+            ps.setString(2,batchidTextField.getText());
             System.out.println("ps for productidvalid=Y "+ps);
             ResultSet rs2 = ps.executeQuery();
             
             if(rs2.next()==true) {
             
             System.out.println("This item with productidvalid=Y exists");
+            int updatedremainingquantity = rs2.getInt("remainingquantity")+1;
             String table_for_batchid = "`"+currenttable+"-"+batchidTextField.getText()+"`";
             String stringquerylastsrno2 = "SELECT srno FROM databaseusers." +table_for_batchid+" ORDER BY srno DESC LIMIT 1;";
             String stringqueryadd2 = "INSERT INTO databaseusers."+table_for_batchid+ "(`srno`, `productid`) VALUES (?, ?);";
+            String stringqueryaddexisting = "UPDATE databaseusers."+"`"+currenttable+"`"+" SET remainingquantity=? WHERE brand=? AND batchid=?;";
             
             int srno2=1;
             PreparedStatement psForSerialNumber2 = (PreparedStatement)dbconn.prepareStatement(stringquerylastsrno2);
@@ -113,8 +117,16 @@ public class InsertionGUI {
             
             System.out.println("ps_query_add "+ps_for_queryadd);
             ps_for_queryadd.executeUpdate();
-            //!!!
+            
             //Have to also increment the remaining quantity 
+            PreparedStatement psAddExisting = (PreparedStatement)dbconn.prepareStatement(stringqueryaddexisting);
+            psAddExisting.setInt(1,updatedremainingquantity);
+            psAddExisting.setString(2,brandTextField.getText());
+            psAddExisting.setString(3,batchidTextField.getText());
+            System.out.println("psAddExisting "+psAddExisting);
+            
+            psAddExisting.executeUpdate();
+            
             System.out.println("updated table for productidvalid=Y");
             
             }
@@ -158,79 +170,14 @@ public class InsertionGUI {
             System.out.println("Item whose batchid didn't exist added, its productid added to newly created table");
             }
         }
-        /*Socket socket = new Socket("localhost", 5436);
-        System.out.println("Client created.");
-        new InsertionGUI().sendMessage(socket,"Insertion",nameTextField.getText(),brandTextField.getText(),idTextField.getText(),quantityTextField.getText(),priceTextField.getText());
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
-                    String result=(String)objectInputStream.readObject();
-                    if(result.equals("Success")){
-                        Platform.runLater(new Runnable() {
-                            @Override
-                            public void run() {
-                                Parent root = null;
-                                Stage stage = (Stage) addItemButton.getScene().getWindow();
-                                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuccessGUI.fxml"));
-                                try {
-                                    root = (Parent) fxmlLoader.load();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                                stage.setTitle("Success GUI");
-                                stage.setScene(new Scene(root, 400, 200));
-                                stage.show();
-                            }
-                        });
-                    }
-                    else {
-                        System.out.println("Message Recieved");
-                        Platform.runLater(new Runnable() {
-                            @Override
-                            public void run() {
-                                Parent root = null;
-                                Stage stage = (Stage) addItemButton.getScene().getWindow();
-                                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FailureMessage.fxml"));
-                                try {
-                                    root = (Parent) fxmlLoader.load();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                                stage.setTitle("Failure GUI");
-                                stage.setScene(new Scene(root, 250, 380));
-                                stage.show();
-                            }
-                        });
-                    }
-                } catch (IOException | ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }).start();
-        */
+       
+        appgui_ref.displayTabular();
+        
         }
         catch(SQLException ex){
             System.out.println("Error Occured in adding item");
         }
     }
 
-   /* private void sendMessage(Socket socket,String function,String name,String brand,String id,String quantity,String price) throws IOException{
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
-        objectOutputStream.writeObject(function);
-        objectOutputStream.flush();
-        objectOutputStream.writeObject(name);
-        objectOutputStream.flush();
-        objectOutputStream.writeObject(brand);
-        objectOutputStream.flush();
-        objectOutputStream.writeObject(id);
-        objectOutputStream.flush();
-        objectOutputStream.writeObject(quantity);
-        objectOutputStream.flush();
-        objectOutputStream.writeObject(price);
-        objectOutputStream.flush();
-
-    }*/
+   
 }
